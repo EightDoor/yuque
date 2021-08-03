@@ -1,5 +1,8 @@
 # 初衷
 - 语雀没有提供linux版本,web端使用交互不方便,自己根据开放api搭建
+# 安装依赖
+- 建议使用cnpm install 
+  - 不然electron无法下载
 # 运行
 - 构建node-gpy
   - 执行 nmp run rebuild
