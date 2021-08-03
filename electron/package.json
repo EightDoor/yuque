@@ -1,0 +1,14 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "周凯",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^13.1.7"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "vite-project",
+  "version": "0.0.0",
+  "main": "./electron/main.js",
+  "scripts": {
+    "z": "concurrently \"npm run dev\" \"npm run start\"",
+    "start": "electron ./electron",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "serve": "vite preview",
+    "lint": "yarn prettier --write",
+    "pack": "electron-builder --dir",
+    "dist:all": "electron-builder -mwl",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps",
+    "dist:linux": "electron-builder --linux deb tar.xz AppImage"
+  },
+  "author": "周凯 <851708184@qq.com>",
+  "dependencies": {
+    "element-plus": "^1.0.2-beta.65",
+    "vue": "^3.2.0-beta.7",
+    "vue-router": "^4.0.10",
+    "electron-is-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^13.1.7",
+    "electron-builder": "^22.11.7",
+    "@types/node": "^16.4.10",
+    "@vitejs/plugin-vue": "^1.3.0",
+    "@vue/compiler-sfc": "^3.1.5",
+    "concurrently": "^6.2.0",
+    "debugout.js": "^1.0.0",
+    "electron-rebuild": "^2.3.5",
+    "less": "^4.1.1",
+    "prettier": "2.3.2",
+    "typescript": "^4.3.5",
+    "vite": "^2.4.4",
+    "vite-plugin-style-import": "^1.0.1",
+    "vue-tsc": "^0.2.2"
+  },
+  "linux": {
+    "icon": "dist/icons"
+  }
+}
