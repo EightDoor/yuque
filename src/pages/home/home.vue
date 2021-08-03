@@ -1,7 +1,7 @@
 <template>
   <div>
-    首页123123
-  </div>
+    首页  
+    </div>
 </template>
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
