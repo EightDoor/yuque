@@ -1,0 +1,129 @@
+{
+  "variables": [],
+  "info": {
+    "name": "语雀",
+    "_postman_id": "c182d3cb-fd5b-802f-016c-55b8c601c211",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "https://www.yuque.com/api/v2/user",
+      "request": {
+        "url": "https://www.yuque.com/api/v2/user",
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "OwrFNoFzM99bHFDf4aO8DtIFWxJKym7Lb9umPvnp",
+            "description": ""
+          }
+        ],
+        "body": {},
+        "description": "查询用户信息"
+      },
+      "response": []
+    },
+    {
+      "name": "https://www.yuque.com/oauth2/token",
+      "request": {
+        "url": "https://www.yuque.com/oauth2/token",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "code",
+              "value": "KNkJESWKnQOOhRt2EyMeq6iX3AZGRpUa9Y4PRuZl",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "rIfCQ3OSJiQExtXjzJ3q",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_code",
+              "description": "",
+              "type": "text"
+            }
+          ]
+        },
+        "description": "获取token"
+      },
+      "response": []
+    },
+    {
+      "name": "https://www.yuque.com/oauth2/authorize?client_id=rIfCQ3OSJiQExtXjzJ3q&code=KNkJESWKnQOOhRt2EyMeq6iX3AZGRpUa9Y4PRuZl&response_type=code&scope=repo,doc&timestamp=1628052913059&sign=TCTk0QpMfv5SzZgRevVJOHmeF4Y=",
+      "request": {
+        "url": {
+          "raw": "https://www.yuque.com/oauth2/authorize?client_id=rIfCQ3OSJiQExtXjzJ3q&code=KNkJESWKnQOOhRt2EyMeq6iX3AZGRpUa9Y4PRuZl&response_type=code&scope=repo,doc&timestamp=1628052913059&sign=TCTk0QpMfv5SzZgRevVJOHmeF4Y=",
+          "protocol": "https",
+          "host": [
+            "www",
+            "yuque",
+            "com"
+          ],
+          "path": [
+            "oauth2",
+            "authorize"
+          ],
+          "query": [
+            {
+              "key": "client_id",
+              "value": "rIfCQ3OSJiQExtXjzJ3q",
+              "equals": true,
+              "description": ""
+            },
+            {
+              "key": "code",
+              "value": "KNkJESWKnQOOhRt2EyMeq6iX3AZGRpUa9Y4PRuZl",
+              "equals": true,
+              "description": ""
+            },
+            {
+              "key": "response_type",
+              "value": "code",
+              "equals": true,
+              "description": ""
+            },
+            {
+              "key": "scope",
+              "value": "repo,doc",
+              "equals": true,
+              "description": ""
+            },
+            {
+              "key": "timestamp",
+              "value": "1628052913059",
+              "equals": true,
+              "description": ""
+            },
+            {
+              "key": "sign",
+              "value": "TCTk0QpMfv5SzZgRevVJOHmeF4Y=",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "description": "授权"
+      },
+      "response": []
+    }
+  ]
+}
