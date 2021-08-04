@@ -1,7 +1,8 @@
 
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
-const isDev = require('electron-is-dev');
+const {app, BrowserWindow} = require("electron")
+const isDev = require("electron-is-dev")
+const path = require("path")
+const {eventListenInit} = require("./event_listen/event_listen")
 
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
@@ -34,6 +35,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  eventListenInit();
   createWindow();
 
   app.on('activate', () => {

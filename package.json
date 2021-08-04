@@ -2,7 +2,6 @@
   "name": "vite-project",
   "version": "0.0.0",
   "main": "main.js",
-  "homepage": "./electron",
   "scripts": {
     "z": "concurrently  \"npm run start\" \"npm run dev\"",
     "start": "wait-on -c waitOnConfig.json http-get://localhost:9999/ -v && electron ./electron",
@@ -17,6 +16,7 @@
     "postinstall": "electron-builder install-app-deps",
     "dist:linux": "electron-builder --linux deb tar.xz AppImage"
   },
+  "type": "commonjs",
   "author": "周凯 <851708184@qq.com>",
   "dependencies": {
     "axios": "^0.21.1",
