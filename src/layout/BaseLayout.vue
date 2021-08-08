@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="100px">
+    <el-aside width="250px">
       <Slider />
     </el-aside>
     <el-main>

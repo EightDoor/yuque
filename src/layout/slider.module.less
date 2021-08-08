@@ -1,9 +1,37 @@
+@UserHeight: 50px;
+
 .ul {
+  padding: 0 15px;
   &>li {
-    background: #13ce66;
-    margin-top: 30px;
+    margin-top: 15px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    border-radius: 5px;
     &:hover {
       cursor: pointer;
     }
+    .name {
+      color: #5daf34;
+    }
+    .count {
+      color: red
+    }
+    .time {
+      color: #8c939d;
+    }
   }
+}
+.containerSilder {
+  height: calc(100vh - @UserHeight);
+  overflow-y: scroll;
+}
+.userInfo  {
+  height: @UserHeight;
+  text-align: center;
+  line-height: @UserHeight;
+}
+.img {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
 }
