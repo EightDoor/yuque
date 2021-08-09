@@ -19,8 +19,7 @@
   "type": "commonjs",
   "author": "周凯 <851708184@qq.com>",
   "dependencies": {
-    "@element-plus/icons": "^0.0.11",
-    "@kangc/v-md-editor": "^2.3.7",
+
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "electron-is-dev": "^2.0.0",

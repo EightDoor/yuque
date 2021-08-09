@@ -1,6 +1,6 @@
 <template>
   <div v-if="data" v-loading="loading">
-    <v-md-editor v-model="text"></v-md-editor>
+    <div v-html="text"></div>
   </div>
 </template>
 <script lang="ts">
@@ -27,7 +27,7 @@ const Home = defineComponent({
       reqGet<ContentDetail>(`repos/${namespace}/docs/${slug}`).then((res) => {
         console.log(res);
         data.value = res;
-        text.value = res.data.body;
+        text.value = res.data.body_html;
         loading.value = false;
       });
     }
