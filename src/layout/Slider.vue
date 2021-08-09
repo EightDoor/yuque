@@ -140,7 +140,7 @@ const Slider = defineComponent({
               : false;
           loadingToc.value = false;
         } else {
-          reqGet<TocList[]>(`/repos/${namespace}/toc`).then((res) => {
+          reqGet<TocList>(`/repos/${namespace}/toc`).then((res) => {
             console.log(res, 'res');
             loadingToc.value = false;
             knowledgeBaseData.value[index].list = res.data;

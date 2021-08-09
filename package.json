@@ -2,6 +2,7 @@
   "name": "vite-project",
   "version": "0.0.0",
   "main": "main.js",
+  "homepage": "./electron",
   "scripts": {
     "z": "concurrently  \"npm run start\" \"npm run dev\"",
     "start": "wait-on -c waitOnConfig.json http-get://localhost:9999/ -v && electron ./electron",
@@ -19,13 +20,11 @@
   "type": "commonjs",
   "author": "周凯 <851708184@qq.com>",
   "dependencies": {
-
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "electron-is-dev": "^2.0.0",
     "element-plus": "^1.0.2-beta.65",
     "localforage": "^1.9.0",
-    "prismjs": "^1.24.1",
     "qs": "^6.10.1",
     "vue": "^3.2.0-beta.7",
     "vue-router": "^4.0.10",
