@@ -1,8 +1,7 @@
 {
   "name": "vite-project",
   "version": "0.0.0",
-  "main": "main.js",
-  "homepage": "./electron",
+  "main": "./electron/main.js",
   "scripts": {
     "z": "concurrently  \"npm run start\" \"npm run dev\"",
     "start": "wait-on -c waitOnConfig.json http-get://localhost:9999/ -v && electron ./electron",
