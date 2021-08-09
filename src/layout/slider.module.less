@@ -1,23 +1,35 @@
 @UserHeight: 50px;
-
+@hoverTextColor: red;
 .ul {
   padding: 0 15px;
-  &>li {
+  &>.top {
     margin-top: 15px;
     border: 1px solid #cccccc;
     padding: 5px;
     border-radius: 5px;
     &:hover {
       cursor: pointer;
+      border: 1px solid @hoverTextColor;
     }
     .name {
       color: #5daf34;
     }
     .count {
-      color: red
+      color: #888F98FF;
     }
     .time {
       color: #8c939d;
+    }
+    .child {
+      margin-top: 15px;
+      margin-left: 30px;
+    }
+    .child:nth-last-child(1) {
+      margin-bottom: 10px;
+    }
+    .childTitle:hover {
+      cursor: pointer;
+      color: @hoverTextColor;
     }
   }
 }
@@ -34,4 +46,9 @@
   height: 15px;
   width: 15px;
   margin-right: 10px;
+}
+.icon {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
 }

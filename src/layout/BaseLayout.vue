@@ -3,8 +3,9 @@
     <el-aside width="250px">
       <Slider />
     </el-aside>
-    <el-main>
+    <el-main class="main">
       <router-view />
+      <el-backtop target=".main"></el-backtop>
     </el-main>
   </el-container>
 </template>
@@ -20,3 +21,9 @@ const BaseLayout = defineComponent({
 
 export default BaseLayout;
 </script>
+<styles scoped lang="less">
+.main {
+  height: 100vh;
+  overflow-y: auto;
+}
+</styles>
