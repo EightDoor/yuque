@@ -18,3 +18,4 @@
 - concurrently 同时运行多条命令
 - prettier 代码格式化
 - debugout.js 前端日志
+- vue3编辑器 md-editor-v3

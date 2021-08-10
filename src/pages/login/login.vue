@@ -1,11 +1,7 @@
 <template>
   <div class="container">
-    <el-button @click="login" :loading="loading" type="primary">
-      登录语雀
-    </el-button>
-    <el-button style="margin-top: 20px" v-if="loading" @click="cancelLoading"
-      >取消登录</el-button
-    >
+    <el-button @click="login" :loading="loading" type="primary">登录语雀</el-button>
+    <el-button style="margin-top: 20px" v-if="loading" @click="cancelLoading">取消登录</el-button>
   </div>
 </template>
 
@@ -33,7 +29,7 @@ const Login = defineComponent({
         console.log('结果值: ' + JSON.stringify(arg));
         if (arg.access_token) {
           await store.set(constant.ACCESSTOKEN, arg.access_token);
-          await router.push('/');
+          await router.push('/home');
         }
         loading.value = false;
       });
@@ -53,5 +49,5 @@ export default Login;
 </script>
 
 <style lang="less">
-@import './login.less';
+@import "./login.less";
 </style>

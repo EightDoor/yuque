@@ -4,7 +4,7 @@ import { defineComponent } from 'vue';
 
 const NotFound = defineComponent({
   name: 'notFond',
-  setup() {},
+  setup() { },
 });
 export default NotFound;
 </script>

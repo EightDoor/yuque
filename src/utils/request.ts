@@ -1,6 +1,7 @@
 import Config from '@/config/config';
 import store from '@/utils/store';
 import axios from 'axios';
+import { ElMessage } from 'element-plus';
 import Constant from './constant';
 
 const instant = axios.create({
@@ -25,6 +26,7 @@ instant.interceptors.response.use(
   (response) => {
     console.log(response, 'response');
     if (response.status == 200) {
+      //
     } else if (response.status === 401) {
       // 登录过期，跳转登录页面
       window.location.href = '/login';
@@ -33,9 +35,13 @@ instant.interceptors.response.use(
   },
   async function (err) {
     console.log(err);
-    await store.set(Constant.ACCESSTOKEN, null,);
-    // window.location.href = '/login';
-    // window.open('/login');
+    if(err.indexOf("401")) {
+      await store.set(Constant.ACCESSTOKEN, null,);
+      window.location.href = '/login';
+    }else {
+      ElMessage.error(JSON.stringify(err))
+    }
+
   }
 );
 
@@ -48,4 +54,16 @@ const reqGet = <T>(
   });
 };
 
-export { reqGet };
+const reqPut = <T>(url: string, body?: Record<string, any>) :Promise<T>=>{
+  return instant.put(url, body).then(res=>{
+    return res.data;
+  })
+}
+
+const reqPost = <T>(url: string, body?: Record<string, any>):Promise<T> =>{
+  return instant.post(url, body).then(res=>{
+    return res.data;
+  })
+}
+
+export { reqGet, reqPut, reqPost };
