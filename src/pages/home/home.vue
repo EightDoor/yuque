@@ -34,9 +34,9 @@ const Home = defineComponent({
 
     const result = computed(() => store.state.data);
     watch(result, (newVal, oldVal) => {
-      const name = store.state.know.namespace;
       console.log('data', newVal);
-      console.log('name', name);
+      const name = store.state.know.namespace;
+
       if (name && newVal.slug) {
         getDetail(name, newVal.slug);
       }

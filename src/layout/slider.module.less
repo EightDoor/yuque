@@ -1,5 +1,8 @@
 @UserHeight: 50px;
 @hoverTextColor: red;
+@SlidChildPadding: 15px;
+
+@SliderWidth: calc(195px - @SlidChildPadding);
 .ul {
   padding: 0 15px;
   &>.top {
@@ -22,15 +25,27 @@
     }
     .child {
       margin-top: 15px;
-      margin-left: 30px;
+      padding: 0;
     }
     .child:nth-last-child(1) {
       margin-bottom: 10px;
     }
-    .childTitle:hover {
-      cursor: pointer;
-      color: @hoverTextColor;
+    .childTitle {
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      border:1px solid  rgba(255, 255, 255, .5);
+      margin-top: @SlidChildPadding;
+      background: #cccccc;
+      width: @SliderWidth;
+      padding-left: @SlidChildPadding;
+
+      &:hover {
+        cursor: pointer;
+        color: @hoverTextColor;
+      }
     }
+
   }
 }
 .containerSilder {

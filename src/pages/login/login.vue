@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import constant from '@/utils/constant';
 import Config from '@/config/config';
 import { defineComponent, ref } from 'vue';
@@ -33,7 +33,7 @@ const Login = defineComponent({
         console.log('结果值: ' + JSON.stringify(arg));
         if (arg.access_token) {
           await store.set(constant.ACCESSTOKEN, arg.access_token);
-          router.push('/');
+          await router.push('/');
         }
         loading.value = false;
       });

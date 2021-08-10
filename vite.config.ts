@@ -1,8 +1,8 @@
+// vite.config.ts
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
 import styleImport from 'vite-plugin-style-import';
-
-export default defineConfig({
+const config = defineConfig({
   server: {
     port: 9999,
     host: '0.0.0.0',
@@ -14,7 +14,7 @@ export default defineConfig({
     alias: [{ find: '@', replacement: '/src' }],
   },
   logLevel: 'info',
-  base: "./",
+  base: './',
   plugins: [
     vue(),
     styleImport({
@@ -35,3 +35,4 @@ export default defineConfig({
     }),
   ],
 });
+export default config;

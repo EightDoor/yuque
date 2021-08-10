@@ -9,6 +9,7 @@
 - `npm run z`
 # 打包
 - `npm run dist`
+- win 打包在linux环境需要安装wine
 # 其他
 - 编辑器使用webstorm 
   - 配置Prettier  实现代码保存自动格式化
