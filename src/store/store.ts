@@ -1,12 +1,13 @@
 import { KnowledgeBaseTypeData } from '@/types/yuque/knowledge_base';
 import { TocListData } from '@/types/yuque/toc_list';
-import { createStore } from 'vuex';
+import { createLogger, createStore } from 'vuex';
 
 export interface BaseStateType {
   data: Partial<TocListData> ;
   know: Partial<KnowledgeBaseTypeData>;
 }
 const store = createStore<BaseStateType>({
+  plugins: [createLogger()],
   state: {
     data: {},
     know: {},

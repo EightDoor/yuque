@@ -6,7 +6,10 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 
 const routes: RouteRecordRaw[] = [
-
+  {
+    path: '/login',
+    component: Login,
+  },
   {
     path: '/',
     component: BaseLayout,
@@ -17,11 +20,6 @@ const routes: RouteRecordRaw[] = [
         component: Home,
       },
     ],
-  },
-
-  {
-    path: '/login',
-    component: Login,
   },
 
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
