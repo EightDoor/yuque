@@ -21,7 +21,7 @@ function createWindow() {
     },
   });
   //
-  win.loadFile(path.join(__dirname, 'dist/index.html'));
+  isDev ? dev() : win.loadFile(path.join(__dirname, 'dist/index.html'));
   function dev() {
     const url = 'http://localhost:9999/';
     win.loadURL(url).then(
