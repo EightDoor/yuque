@@ -12,7 +12,7 @@
       </div>
       <div class="topBarItem">
         更新时间:
-        <span>{{ formatTime(data.data?.content_updated_at) }}</span>
+        <span>{{ formatTime(data.data?.content_updated_at ?? "") }}</span>
       </div>
     </div>
     <editor @onSave="changeSave" class="editor" :toolbarsExclude="['github']" v-model="text" />
