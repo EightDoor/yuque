@@ -2,8 +2,7 @@ import BaseLayout from '@/layout/BaseLayout.vue';
 import Home from '@/pages/home/home.vue';
 import Login from '@/pages/login/login.vue';
 import NotFound from '@/pages/other/not_found.vue';
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -26,7 +25,7 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

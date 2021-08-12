@@ -1,7 +1,7 @@
 import Config from '@/config/config';
 import store from '@/utils/store';
 import axios from 'axios';
-import { ElMessage } from 'element-plus';
+import { ElMessage } from '_element-plus@1.0.2-beta.70@element-plus';
 import Constant from './constant';
 
 const instant = axios.create({
@@ -35,9 +35,11 @@ instant.interceptors.response.use(
   },
   async function (err) {
     console.log(err);
-    if(err.indexOf("401")) {
+    console.log(window.location)
+    const pathname = window.location.pathname;
+    if(JSON.stringify(err).indexOf("401") && pathname !== '#/login') {
       await store.set(Constant.ACCESSTOKEN, null,);
-      window.location.href = '/login';
+      window.location.href = '#/login';
     }else {
       ElMessage.error(JSON.stringify(err))
     }
