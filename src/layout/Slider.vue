@@ -1,5 +1,6 @@
 <template>
   <div>
+<<<<<<< HEAD
     <div class="userInfo">
       <div>{{ userInfo.name }}</div>
       <div>
@@ -13,6 +14,9 @@
         </el-tooltip>
       </div>
     </div>
+=======
+    <div class="userInfo">{{ userInfo.name }}</div>
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
     <div class="containerSilder">
       <ul class="ul">
         <li
@@ -44,9 +48,13 @@
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item icon="el-icon-refresh" @click="refresh(item)">刷新</el-dropdown-item>
+<<<<<<< HEAD
                 <el-dropdown-item icon="el-icon-folder-add" @click="add(item)">添加文档</el-dropdown-item>
                 <el-dropdown-item icon="el-icon-edit" @click="editKnowledge(item)">编辑知识库</el-dropdown-item>
                 <el-dropdown-item icon="el-icon-delete" @click="delKnowledge(item)">删除知识库</el-dropdown-item>
+=======
+                <el-dropdown-item icon="el-icon-folder-add" @click="add(item)">添加</el-dropdown-item>
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -61,8 +69,12 @@
                 >{{ v.title }}</span>
                 <template #dropdown>
                   <el-dropdown-menu>
+<<<<<<< HEAD
                     <el-dropdown-item icon="el-icon-edit" @click="editToc(v, item)">编辑文档</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-delete" @click="deleteToc(v, item)">删除文档</el-dropdown-item>
+=======
+                    <el-dropdown-item icon="el-icon-plus">测试添加其他内容</el-dropdown-item>
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
@@ -73,7 +85,11 @@
       <el-backtop target=".containerSilder"></el-backtop>
     </div>
 
+<<<<<<< HEAD
     <el-dialog title="添加文档" v-model="addVisible" center width="50%" :before-close="handleClose">
+=======
+    <el-dialog title="添加" v-model="addVisible" center width="50%" :before-close="handleClose">
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
       <el-form :model="ruleForm" :rule="rules" label-width="100px">
         <el-form-item label="标题" prop="title">
           <el-input v-model="ruleForm.title"></el-input>
@@ -102,7 +118,10 @@
         </span>
       </template>
     </el-dialog>
+<<<<<<< HEAD
     <knowledge-baseVue ref="knowledgeRef" @refresh="getKnowledgeBase"></knowledge-baseVue>
+=======
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
   </div>
 </template>
 <script lang="ts">
@@ -110,13 +129,18 @@ import { defineComponent, reactive, onMounted, ref, h } from 'vue';
 import { useRouter } from 'vue-router';
 import { UserInfoData } from '@/types/yuque/user';
 import Business from '@/utils/business';
+<<<<<<< HEAD
 import { reqDel, reqGet, reqPost, reqPut } from '@/utils/request';
+=======
+import { reqGet, reqPost } from '@/utils/request';
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
 import {
   KnowledgeBaseType,
   KnowledgeBaseTypeData,
 } from '@/types/yuque/knowledge_base';
 import utils from '@/utils/index';
 import { TocList, TocListData } from '@/types/yuque/toc_list';
+<<<<<<< HEAD
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { useStore } from 'vuex';
 import { BaseStateType } from '@/store/store';
@@ -129,6 +153,15 @@ const Slider = defineComponent({
   components: {
     knowledgeBaseVue,
   },
+=======
+import { ElMessage } from 'element-plus';
+import { useStore } from 'vuex';
+import { BaseStateType } from '@/store/store';
+import { ContentDetail } from '@/types/yuque/content_detail';
+
+const Slider = defineComponent({
+  name: 'slider',
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
   setup() {
     const store = useStore<BaseStateType>();
     const offset = 10000;
@@ -218,6 +251,7 @@ const Slider = defineComponent({
       //   });
       // }
     }
+<<<<<<< HEAD
     function addKnowledge() {
       knowledgeRef.value.openShow();
     }
@@ -228,6 +262,8 @@ const Slider = defineComponent({
     function delKnowledge(item: KnowledgeBaseTypeData) {
       knowledgeRef.value.openShow(item, 'del');
     }
+=======
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
 
     // 添加文章
     const addVisible = ref(false)
@@ -238,9 +274,14 @@ const Slider = defineComponent({
       "public": 0,
       "format": "markdown",
       "body": "",
+<<<<<<< HEAD
       "id": 0,
     }
     let ruleForm = reactive(defaultForm)
+=======
+    }
+    let ruleForm = reactive(defaultForm);
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
     const rules = {
       title: [
         {
@@ -252,12 +293,16 @@ const Slider = defineComponent({
     const addTocData = ref<KnowledgeBaseTypeData>();
     function add(item: KnowledgeBaseTypeData) {
       console.log(item);
+<<<<<<< HEAD
       ruleForm.title = "",
         ruleForm.slug = Date.now(),
         ruleForm.public = 0,
         ruleForm.format = "markdown",
         ruleForm.body = "";
       ruleForm.id = 0;
+=======
+      ruleForm = defaultForm;
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
       addTocData.value = item;
       addVisible.value = true;
     }
@@ -267,6 +312,7 @@ const Slider = defineComponent({
     function addSubmit() {
       if (addTocData.value) {
         loadingAdd.value = true;
+<<<<<<< HEAD
         if (!ruleForm.id) {
           reqPost<ContentDetail>(`/repos/${addTocData.value.id}/docs`, ruleForm).then(async (res) => {
             await refreshData(res, '添加')
@@ -346,6 +392,23 @@ const Slider = defineComponent({
         }
       });
     }
+=======
+        reqPost<ContentDetail>(`/repos/${addTocData.value.id}/docs`, ruleForm).then(res => {
+          console.log("添加成功了", res);
+          loadingAdd.value = false;
+          addVisible.value = false;
+          changeRepo(addTocData.value);
+          ElMessage.success("添加成功")
+          store.commit('update', {
+            data: res.data,
+            know: addTocData,
+          });
+        }).catch(err => {
+          loadingAdd.value = false;
+        })
+      }
+    }
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
 
     // 刷新
     function refresh(item: KnowledgeBaseTypeData) {
@@ -369,9 +432,12 @@ const Slider = defineComponent({
       loadingToc,
       changeChild,
       currentIndex,
+<<<<<<< HEAD
       knowledgeRef,
       editToc,
       deleteToc,
+=======
+>>>>>>> 0e998a91353c84583f30d724e28cd94688920bcc
 
       // 添加文档
       add,
