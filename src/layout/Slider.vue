@@ -316,7 +316,7 @@ const Slider = defineComponent({
       ElMessageBox.prompt('提示', {
         title: "提示",
         message: h('p', null, [
-          h('span', null, '删除的仓库是 '),
+          h('span', null, '删除的文档是 '),
           h('i', { style: 'color: red' }, v.title)
         ]),
         confirmButtonText: '确定',
@@ -330,7 +330,9 @@ const Slider = defineComponent({
             if (instance.inputValue === v.title) {
               reqDel<ContentDetail>(`/repos/${item.id}/docs/${v.id}`).then(async (res) => {
                 instance.confirmButtonLoading = false;
-                await refreshData(res, '删除')
+                ElMessage.success("删除成功");
+                await getKnowledgeBase();
+                refresh(item);
                 done()
               }).catch(err => {
                 instance.confirmButtonLoading = false;

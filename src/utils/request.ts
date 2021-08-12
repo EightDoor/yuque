@@ -27,9 +27,6 @@ instant.interceptors.response.use(
     console.log(response, 'response');
     if (response.status == 200) {
       //
-    } else if (response.status === 401) {
-      // 登录过期，跳转登录页面
-      window.location.href = '/login';
     }
     return response;
   },
@@ -37,7 +34,7 @@ instant.interceptors.response.use(
     console.log(err);
     console.log(window.location)
     const pathname = window.location.pathname;
-    if(JSON.stringify(err).indexOf("401") && pathname !== '#/login') {
+    if(JSON.stringify(err).includes("401") && pathname !== '#/login') {
       await store.set(Constant.ACCESSTOKEN, null,);
       window.location.href = '#/login';
     }else {
