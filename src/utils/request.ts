@@ -66,4 +66,10 @@ const reqPost = <T>(url: string, body?: Record<string, any>):Promise<T> =>{
   })
 }
 
-export { reqGet, reqPut, reqPost };
+const reqDel = <T>(url: string,):Promise<T>=>{
+  return instant.delete(url).then(res=>{
+    return res.data;
+  })
+}
+
+export { reqGet, reqPut, reqPost, reqDel };
